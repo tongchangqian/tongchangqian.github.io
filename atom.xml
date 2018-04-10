@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-28T08:06:59.722Z</updated>
+  <updated>2018-04-10T04:14:36.535Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,26 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
-    <link href="http://yoursite.com/2018/03/28/my-one-markdown-test/"/>
-    <id>http://yoursite.com/2018/03/28/my-one-markdown-test/</id>
-    <published>2018-03-28T08:05:27.566Z</published>
-    <updated>2018-03-28T08:06:59.722Z</updated>
+    <title>htnl5_base_info</title>
+    <link href="http://yoursite.com/2018/04/09/html5_base_info/"/>
+    <id>http://yoursite.com/2018/04/09/html5_base_info/</id>
+    <published>2018-04-09T02:00:29.000Z</published>
+    <updated>2018-04-10T04:14:36.535Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;This-is-a-test-markdown&quot;&gt;&lt;a href=&quot;#This-is-a-test-markdown&quot; class=&quot;headerlink&quot; title=&quot;This is a test markdown&quot;&gt;&lt;/a&gt;This is a test
-        
-      
+      Html5
     
     </summary>
     
+      <category term="童长钱" scheme="http://yoursite.com/categories/%E7%AB%A5%E9%95%BF%E9%92%B1/"/>
     
-      <category term="markdown语法" scheme="http://yoursite.com/tags/markdown%E8%AF%AD%E6%B3%95/"/>
+    
+      <category term="HTML5" scheme="http://yoursite.com/tags/HTML5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Html5基础（初识标签结构）</title>
+    <link href="http://yoursite.com/2018/03/29/html5_label_structure/"/>
+    <id>http://yoursite.com/2018/03/29/html5_label_structure/</id>
+    <published>2018-03-29T11:01:01.000Z</published>
+    <updated>2018-04-09T09:02:21.996Z</updated>
+    
+    <summary type="html">
+    
+      Html5 基础-初识标签和结构
+    
+    </summary>
+    
+      <category term="童长钱" scheme="http://yoursite.com/categories/%E7%AB%A5%E9%95%BF%E9%92%B1/"/>
+    
+    
+      <category term="HTML5" scheme="http://yoursite.com/tags/HTML5/"/>
     
   </entry>
   
