@@ -1,96 +1,188 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-  
-  <title>Html5基础（初识标签结构） | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Html5 基础-初识标签和结构">
+    
+
+    <title>
+      Html5基础（初识标签结构） | 喫茶去 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Tong CQ">
+    
+    
+
+    <meta name="description" content="Html5 基础-初识标签和结构">
 <meta name="keywords" content="HTML5">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Html5基础（初识标签结构）">
+<meta property="og:title" content="Html5基础（初识标签结构） | 喫茶去">
 <meta property="og:url" content="http://yoursite.com/2018/03/29/html5_label_structure/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="喫茶去">
 <meta property="og:description" content="Html5 基础-初识标签和结构">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-04-18T08:42:02.690Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Html5基础（初识标签结构）">
+<meta name="twitter:title" content="Html5基础（初识标签结构） | 喫茶去">
 <meta name="twitter:description" content="Html5 基础-初识标签和结构">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
 
+</head>
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
         
-          <a class="main-nav-link" href="/">Home</a>
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">喫茶去</a></h1>
+        <hr class="panel-cover__divider" />
+
         
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archives" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
       </div>
+
     </div>
+
+    <div class="panel-cover--overlay"></div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-html5_label_structure" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/29/html5_label_structure/" class="article-date">
-  <time datetime="2018-03-29T11:01:01.000Z" itemprop="datePublished">2018-03-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/童长钱/">童长钱</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Html5基础（初识标签结构）
-    </h1>
-  
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
 
-      </header>
+<article class="post-container post-container--single">
+
+  <header class="post-header">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、HTML5语法"><a href="#一、HTML5语法" class="headerlink" title="一、HTML5语法"></a>一、HTML5语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;zh-CN&quot;&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;HTML5语法&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;form&gt;</span><br><span class="line">        &lt;input Type=&quot;checkbox&quot; checked /&gt;</span><br><span class="line">        &lt;input Type=&quot;test&quot; /&gt;</span><br><span class="line">        &lt;input TYpe=&quot;checkbox&quot; checked /&gt;</span><br><span class="line">        &lt;INPUT TYPE=&quot;RADIO&quot;/&gt;</span><br><span class="line">        &lt;input&gt;&lt;/input&gt; </span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+    <h1 class="post-title">Html5基础（初识标签结构）</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-03-29" class="post-meta__date date">2018-03-29</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/童长钱/">童长钱</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/HTML5/">HTML5</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="一、HTML5语法"><a href="#一、HTML5语法" class="headerlink" title="一、HTML5语法"></a>一、HTML5语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;zh-CN&quot;&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;HTML5语法&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;form&gt;</span><br><span class="line">        &lt;input Type=&quot;checkbox&quot; checked /&gt;</span><br><span class="line">        &lt;input Type=&quot;test&quot; /&gt;</span><br><span class="line">        &lt;input TYpe=&quot;checkbox&quot; checked /&gt;</span><br><span class="line">        &lt;INPUT TYPE=&quot;RADIO&quot;/&gt;</span><br><span class="line">        &lt;input&gt;&lt;/input&gt; </span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <ol>
 <li><p><strong>DOCTYPE及编码格式语言</strong></p>
@@ -120,147 +212,63 @@
 </li>
 </ol>
 <h3 id="不懂的地方可以参考-http-www-w3cSchool-com或者百度搜索http-www-baidu-com"><a href="#不懂的地方可以参考-http-www-w3cSchool-com或者百度搜索http-www-baidu-com" class="headerlink" title="不懂的地方可以参考 http://www.w3cSchool.com或者百度搜索http://www.baidu.com"></a>不懂的地方可以参考 <a href="http://www.w3cSchool.com" title="w3" target="_blank" rel="noopener">http://www.w3cSchool.com</a>或者百度搜索<a href="http://www.baidu.com" title="www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a></h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/29/html5_label_structure/" data-id="cjg4tzmgz0006a0sq1xif9ukh" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+  </section>
 
-    </footer>
-  </div>
-  
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
     
-<nav id="article-nav">
-  
-    <a href="/2018/04/09/html5_base_info/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          htnl5_base_info
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/03/26/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
+</section>
 
-  
+
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/童长钱/">童长钱</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/04/18/html5-canvas-2/">Html5_canvas2</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/13/html5-canvas-1/">Html5-canvas_1</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/09/html5_base_info/">htnl5_base_info</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/29/html5_label_structure/">Html5基础（初识标签结构）</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/26/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
+        </div>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
 
 
-<script src="/js/script.js"></script>
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
 
-
-
-  </div>
 </body>
 </html>

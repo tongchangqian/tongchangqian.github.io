@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>喫茶去</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-18T07:45:17.246Z</updated>
+  <updated>2018-04-18T23:38:13.049Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Tong CQ</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Html5_canvas2</title>
+    <title>Html5_canvas_2</title>
     <link href="http://yoursite.com/2018/04/18/html5-canvas-2/"/>
     <id>http://yoursite.com/2018/04/18/html5-canvas-2/</id>
     <published>2018-04-17T16:00:00.000Z</published>
-    <updated>2018-04-18T07:45:17.246Z</updated>
+    <updated>2018-04-18T23:38:13.049Z</updated>
     
     <summary type="html">
     
@@ -61,7 +61,7 @@
     <link href="http://yoursite.com/2018/04/09/html5_base_info/"/>
     <id>http://yoursite.com/2018/04/09/html5_base_info/</id>
     <published>2018-04-09T02:00:29.000Z</published>
-    <updated>2018-04-15T07:04:59.822Z</updated>
+    <updated>2018-04-18T23:36:08.152Z</updated>
     
     <summary type="html">
     
