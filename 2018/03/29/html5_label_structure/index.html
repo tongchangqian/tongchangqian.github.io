@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/29/html5_label_structure/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Html5 基础-初识标签和结构">
-<meta property="og:updated_time" content="2018-04-15T06:29:04.822Z">
+<meta property="og:updated_time" content="2018-04-18T08:42:02.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Html5基础（初识标签结构）">
 <meta name="twitter:description" content="Html5 基础-初识标签和结构">
@@ -94,57 +94,36 @@
 <a id="more"></a>
 <ol>
 <li><p><strong>DOCTYPE及编码格式语言</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    &lt;!DOCTYPE html&gt;&lt;!--声明：文档类型 ！h5就是怎么简单--&gt;</span><br><span class="line">    &lt;html lang=&quot;zh-CN&quot;&gt;&lt;!--设置语言--&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;&lt;!--声明文档的编码格式--&gt;</span><br><span class="line">``` </span><br><span class="line">2. **大小写都可以&lt;对大小写不敏感&gt;（注意：开发中：一般，默认使用小写**）</span><br><span class="line">```html5</span><br><span class="line">    &lt;input Type=&quot;test&quot;value=&quot;效果图&quot; /&gt;</span><br><span class="line">    &lt;input TYpe=&quot;checkbox&quot; checked /&gt;</span><br><span class="line">    &lt;INPUT TYPE=&quot;RADIO&quot;/&gt;</span><br><span class="line">**以上在html5中都是可以的。**</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span><span class="comment">&lt;!--声明：文档类型 ！h5就是怎么简单--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span><span class="comment">&lt;!--设置语言--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="comment">&lt;!--声明文档的编码格式--&gt;</span>  </span><br><span class="line">    <span class="comment">&lt;!--  **大小写都可以&lt;对大小写不敏感&gt;（注意：开发中：一般，默认使用小写**--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">Type</span>=<span class="string">"test"</span><span class="attr">value</span>=<span class="string">"效果图"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">TYpe</span>=<span class="string">"checkbox"</span> <span class="attr">checked</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">INPUT</span> <span class="attr">TYPE</span>=<span class="string">"RADIO"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--以上在html5中都是可以的.--&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>**省略的标的标签</p>
 </li>
-<li><p><em>不允许些结束的标签</em><br><strong>are,baser,col,common,embed,hr,img,input,keygen,link,meat,param,source tract wbr</strong></p>
+<li><p><em>不允许些结束的标签</em><br><strong>are</strong>,<strong>baser</strong>,<strong>col</strong>,<strong>common</strong>,<strong>embed</strong>,<strong>hr</strong>,<strong>img</strong>,<strong>input</strong>,<strong>keygen</strong>,<strong>link</strong>,<strong>meat</strong>,<strong>param</strong>,<strong>source</strong>,<strong>tract</strong>, <strong>wbr</strong></p>
 </li>
-<li><em>可以省略结束的标签</em><br><strong>li,dt,dd,p,rt,optgroup,option,colgroup,thread,tbody,rt,td,th</strong></li>
+<li><em>可以省略结束的标签</em><br><strong>li</strong>,<strong>dt</strong>,<strong>dd</strong>,<strong>p</strong>,<strong>rt</strong>,<strong>optgroup</strong>,<strong>option</strong>,<strong>colgroup</strong>,<strong>thread</strong>,<strong>tbody</strong>,<strong>rt</strong>,<strong>td</strong>,<strong>th</strong></li>
 <li><em>完全可以省略的标签</em><br><strong>html titlt tbody</strong></li>
 </ol>
-<h2 id="新增及删除标签"><a href="#新增及删除标签" class="headerlink" title="新增及删除标签"></a>新增及删除标签</h2><blockquote>
+<h2 id="二、新增及删除标签"><a href="#二、新增及删除标签" class="headerlink" title="二、新增及删除标签"></a>二、新增及删除标签</h2><p>一. <strong>新增标签</strong></p>
 <ol>
-<li><p><strong>新增标签</strong></p>
-<blockquote>
-<ol>
-<li><p>结构标签</p>
-<blockquote>
-<p>section 表示页面中的一个内容区块，表示文档结构<br>article 表示页面中一块与上下文不相关的独立核心内容，比如一篇文章<br>aside 表示article内容之外的，与artice标签内容相关的辅助信息</p>
-</blockquote>
+<li><p>结构标签<br>1.1、 <strong>section</strong> 表示页面中的一个内容区块，表示文档结构<br>1.2、 <strong>article</strong> 表示页面中一块与上下文不相关的独立核心内容，比如一篇文章<br>1.3、 <strong>aside</strong> 表示article内容之外的，与artice标签内容相关的辅助信息</p>
 </li>
-<li><p>表单标签</p>
+<li><p>表单标签<br><strong>…</strong></p>
 </li>
-<li><p>媒体标签</p>
-<blockquote>
-<p><strong>video</strong>,<strong>audio</strong>等</p>
-</blockquote>
+<li><p>媒体标签<br><strong>video</strong>,<strong>audio</strong>等</p>
 </li>
-<li><p>其他标签</p>
-<blockquote>
-<p>1、mark  高亮文本<br>2、progress  进度条<br>3、time  时间”time datetime=”2013-10-20T09:00Z” pubdate”9:00”/time”<br>4、ruby  文本解释</p>
-</blockquote>
-</li>
-</ol>
-</blockquote>
-</li>
-<li><p><strong>删除标签</strong></p>
-<blockquote>
-<ol>
-<li>可以被css代替的标签</li>
-<li>不再使用frame</li>
-<li>只有个别浏览器支持的标签</li>
+<li><p>其他标签<br>4.1、<strong>mark</strong>  高亮文本<br>4.2、<strong>progress</strong>  进度条<br>4.3、<strong>time</strong> 时间”time datetime=”2013-10-20T09:00Z” pubdate”9:00”/time”<br>4.4、<strong>ruby</strong>  文本解释</p>
+<p>二. <strong>删除标签</strong> &gt; 1. 可以被css代替的标签</p>
+<ol start="2">
+<li>不再使用frame 3. 只有个别浏览器支持的标签</li>
 <li>不常用的标签</li>
 </ol>
-</blockquote>
 </li>
 </ol>
-</blockquote>
 <h3 id="不懂的地方可以参考-http-www-w3cSchool-com或者百度搜索http-www-baidu-com"><a href="#不懂的地方可以参考-http-www-w3cSchool-com或者百度搜索http-www-baidu-com" class="headerlink" title="不懂的地方可以参考 http://www.w3cSchool.com或者百度搜索http://www.baidu.com"></a>不懂的地方可以参考 <a href="http://www.w3cSchool.com" title="w3" target="_blank" rel="noopener">http://www.w3cSchool.com</a>或者百度搜索<a href="http://www.baidu.com" title="www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a></h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/29/html5_label_structure/" data-id="cjft5l2h80002gosqjb0ras82" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/29/html5_label_structure/" data-id="cjg4tzmgz0006a0sq1xif9ukh" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
@@ -165,9 +144,9 @@
     </a>
   
   
-    <a href="/2018/03/26/test/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/03/26/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">test</div>
+      <div class="article-nav-title">Hello World</div>
     </a>
   
 </nav>
@@ -193,7 +172,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown语法/">markdown语法</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
     </div>
   </div>
 
@@ -203,7 +182,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/HTML5/" style="font-size: 20px;">HTML5</a> <a href="/tags/markdown语法/" style="font-size: 10px;">markdown语法</a>
+      <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a>
     </div>
   </div>
 
@@ -225,6 +204,10 @@
       <ul>
         
           <li>
+            <a href="/2018/04/18/html5-canvas-2/">Html5_canvas2</a>
+          </li>
+        
+          <li>
             <a href="/2018/04/13/html5-canvas-1/">Html5-canvas_1</a>
           </li>
         
@@ -234,10 +217,6 @@
         
           <li>
             <a href="/2018/03/29/html5_label_structure/">Html5基础（初识标签结构）</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/26/test/">test</a>
           </li>
         
           <li>
