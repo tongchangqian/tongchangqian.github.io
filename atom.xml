@@ -1,20 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>喫茶去</title>
+  <title>汀潼</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-18T23:38:13.049Z</updated>
+  <updated>2018-04-25T13:39:38.553Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>Tong CQ</name>
+    <name>TongCQ</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nodejs-chapters-1</title>
+    <link href="http://yoursite.com/2018/04/25/nodejs-chapter-1/"/>
+    <id>http://yoursite.com/2018/04/25/nodejs-chapter-1/</id>
+    <published>2018-04-24T16:00:00.000Z</published>
+    <updated>2018-04-25T13:39:38.553Z</updated>
+    
+    <summary type="html">
+    
+      nodejs 常用模块 文件引入和使用 this的用法
+    
+    </summary>
+    
+      <category term="童长钱" scheme="http://yoursite.com/categories/%E7%AB%A5%E9%95%BF%E9%92%B1/"/>
+    
+    
+      <category term="nodejs" scheme="http://yoursite.com/tags/nodejs/"/>
+    
+  </entry>
   
   <entry>
     <title>Html5_canvas_2</title>
