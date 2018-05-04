@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      nodejs-chapter-2 | 汀潼 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="TongCQ">
+    
+    
+
+    <meta name="description" content="nodejs Buffer的相关知识">
+<meta name="keywords" content="nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs-chapter-2 | 汀潼">
+<meta property="og:url" content="http://yoursite.com/2018/05/02/nodejs-chapter-2/index.html">
+<meta property="og:site_name" content="汀潼">
+<meta property="og:description" content="nodejs Buffer的相关知识">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-02T11:38:59.646Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nodejs-chapter-2 | 汀潼">
+<meta name="twitter:description" content="nodejs Buffer的相关知识">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">汀潼</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archives" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">nodejs-chapter-2</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-05-02" class="post-meta__date date">2018-05-02</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/童长钱/">童长钱</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/nodejs/">nodejs</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Buffer？"><a href="#Buffer？" class="headerlink" title="Buffer？"></a>Buffer？</h3><p><strong>Buffer</strong>是Node特有的一种数据类型，主要用来处理二进制数据。  </p>
+<p><strong>Buffer</strong>属于固有（built）类型无需使用require引入。  </p>
+<p>例如下面例子：    </p>
+<pre><code class="node.js">var fs = require(&quot;fs&quot;);
+fs.readFile(&quot;foo.text&quot;,function (err,results){
+    console.log(results);
+});
+//结果：&lt;Buffer 48 65 6c 6f 20 57 6f 72 6c 64 &gt;(hellow node)  
+</code></pre>
+<p>上面的代码中，最后打印出的是十六进制的数据，由于纯二进制格式太长而且难以阅读，Buffer通常表现为十六进制的字符串。  </p>
+<a id="more"></a>
+<h3 id="Buffer的构建以转换"><a href="#Buffer的构建以转换" class="headerlink" title="Buffer的构建以转换"></a>Buffer的构建以转换</h3><p>buffer类初始化一个buffer对象，参数可以是二进制数据组成的数组：    </p>
+<pre><code class="node.js">var buffer = Buffer([0x48,0x65,0x6c,0x6c,0x6c,0x6f,0x20,0x4e,0x64f,0x64,0x65]);  
+//结果：hellow node  
+</code></pre>
+<p>如果想有一个字符串来得到一个Buffer，同样可以实现，例如：  </p>
+<pre><code class="node.js">var buffer = new Buffer(&quot;Hellow Node&quot;);
+console.log(buffer);
+//结果：&lt;Buffer 48 65 6c 6f 20 4e 6f 64 65&gt;
+</code></pre>
+<p><strong>注意</strong>：在最新的Node API中，Buffer()方法被标记为Depecated(“不赞同”的意思)，表示不推荐使用;目前推荐使用Buffer.from方法来初始化一个对象，上面的代码可以改写成为提下形式：   </p>
+<pre><code class="node.js">var buffer = Buffer.from([0x48,0x65,0x6c,0x6c,0x6c,0x6f,0x20,0x4e,0x64f,0x64,0x65]);//&quot;Hellow Node&quot;
+var buffer = new Buffer.from(&quot;Hellow Node&quot;);
+console.log(buffer);
+//结果：&lt;Buffer 48 65 6c 6f 20 4e 6f 64 65&gt;
+</code></pre>
+<p>如果想把一个Buffer对象转换成字符串的形式，需要用到toString()方法，调用格式为：  </p>
+<pre><code class="node.js">buffer。toString([encoding],[start],[end]);
+encoding:目标编码格式
+start:起始位置
+end:结束位置
+</code></pre>
+<p>Bufer支持的编码格式有限，只有以下六种：</p>
+<ol>
+<li>ASCⅡ</li>
+<li>Base64</li>
+<li>Binary</li>
+<li>hex</li>
+<li>UTF-8</li>
+<li>UTF-16LE/UCS-2  </li>
+</ol>
+<p>buffer还提供了isEncoding方法来判断是否支持转换为目标编码格式。   </p>
+<p>例如：把“Hellow Node”的Buffer对象转换为字符串，可以这样调用：    </p>
+<pre><code class="node.js">//制转换前五个字符 输出“hello”
+console.log(buffer.tiString(&quot;utf-8&quot;,0,5));
+</code></pre>
+<h3 id="Buffer-的拼接"><a href="#Buffer-的拼接" class="headerlink" title="Buffer 的拼接"></a>Buffer 的拼接</h3><p>Buffer一个常见的场景是用来处理HTTP的post请求，例如下面代码:  </p>
+<pre><code class="node.js">var body = &apos;&apos;;
+req.setEncoding(&quot;utf-8&quot;);
+req.on(&quot;data&quot;,function(chunk){
+    body += chunk;
+});
+req.on(&quot;end&quot;,fiunction(){
+});
+</code></pre>
+<p>上面代码使用+=来拼接上传的数据流，这个过程包含了一个隐式的编码转换。<br>body += chunk 相当于 body+=chunk。toString()，当上传的字符全是英文字符的时候固然没有问题，但如果包含中文或者其他语言，由于toString方法默认使用UTF-8编码，这个时候就可能出现乱码。</p>
+<pre><code>举个例子：首先构造一个中文字符串，并保存为test.txt      
+八百标兵奔北坡，北坡炮兵并排跑。炮兵排把标兵碰，标兵怕碰炮兵炮。  
+``` node.js
+var rs =require(&quot;fs&quot;).createReadStream(&quot;test.txt&quot;,{highWaterMark :10});
+var data = &quot;&quot;;
+rs.on(&quot;data&quot;,function (chunk){
+    data += chunk;
+});
+rs.on(&quot;end&quot;,function(){
+    console.log(data);
+});
+</code></pre><p><strong>highWaterMark</strong><br>字面的意思最高水位线,它表示内部缓冲区最多能容纳的字节数，如果超过这个大小，就停止读取资源文件，默认大小64KB。<br>假设文件的大小超过默认值64KB就会触发data事件：chunk的大小就等于<em>highWaterMark</em>大小;直到文件读取完成时，触发end事件。<br>由于UTF-8中一个汉字占三个字节，那么highWaterMark设置为10，每三个子之后就有一个字会被截段，因此在调用tostring方法的时候出现乱码。<br>目前上面的代码已经被舍弃，官方推荐使用push方法来拼接Buffer，如下面代码所示：  </p>
+<pre><code class="node.js">var rs =require(&quot;fs&quot;).createReadStream(&quot;test.txt&quot;,{highWaterMark :10});
+var data = [];
+rs.on(&quot;data&quot;,function (chunk){
+    data.push(chunk);
+});
+rs.on(&quot;end&quot;,function(){
+    var buf = Buffer.concat(data);
+    console.log(buf.toString());
+});
+</code></pre>
+<p>上面代码在拼接的过程中不会有隐式的编码转换，首先将Buffer放到数组里面去，等待传输完后在进行转换，这样就不会出现乱码。</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

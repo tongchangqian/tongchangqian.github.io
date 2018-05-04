@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      nodejs-chapter-3 | 汀潼 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="TongCQ">
+    
+    
+
+    <meta name="description" content="nodejs file system（文件系统）">
+<meta name="keywords" content="nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs-chapter-3 | 汀潼">
+<meta property="og:url" content="http://yoursite.com/2018/05/02/nodejs-chapter-3/index.html">
+<meta property="og:site_name" content="汀潼">
+<meta property="og:description" content="nodejs file system（文件系统）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-02T11:35:43.177Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nodejs-chapter-3 | 汀潼">
+<meta name="twitter:description" content="nodejs file system（文件系统）">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">汀潼</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archives" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">nodejs-chapter-3</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-05-02" class="post-meta__date date">2018-05-02</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/童长钱/">童长钱</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/nodejs/">nodejs</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="File-System？"><a href="#File-System？" class="headerlink" title="File System？"></a>File System？</h3><p><strong>File System</strong> 是Node中使用最为频繁的模块之一，该模块提供了读写文件系统的能力。<br>浏览器中的JavaScript没有读写本地文件系统的能力(忽略IE中的ActiveX),而Node作服务器编程语言，伟岸系统API是必须的，File System模块包含了数十个文件操作的API，<a href="https://nodejs.org/dist/latest-v8.x/docs/api//fs.html" target="_blank" rel="noopener">查阅API</a><br><a id="more"></a></p>
+<h4 id="下面介绍几个常用的API"><a href="#下面介绍几个常用的API" class="headerlink" title="下面介绍几个常用的API"></a>下面介绍几个常用的API</h4><ol>
+<li><strong>readFile</strong></li>
+</ol>
+<p>声明如下：    </p>
+<pre><code class="node.js">fs.readFile(file[,options,callback])#  
+Added: v0.1.29  
+file &lt;String&gt; | &lt;Buffer&gt; | &lt;Integer&gt; filename of file descriptor  
+options &lt;Object&gt; | &lt;String&gt;  
+encoding &lt;String&gt; | &lt;Null&gt; default  = null  
+flag &lt;String&gt; defult = &quot;r&quot;  
+callblack = &lt;Function&gt;
+</code></pre>
+<p>readFile 方法用异步来读取文件中的内容，例如：  </p>
+<pre><code class="node.js">var fs= require(&quot;fs&quot;);
+var data = fs.readFileSync(&quot;foo.txt&quot;,function (err,data){
+    if (err) thorw err;
+    console.log(data);
+});
+</code></pre>
+<p><em>readFile</em>会将一个文件的全部内容读到内存中，适用于提交较小的文本；如果有一个数百MB大小的文件需要读取，建议不要使用readFile而是选择stream。readFile读出的数据需要在回调方法中获取，而readFileSync直接返回文本数据内容。  </p>
+<pre><code class="node.js">var fs= require(&quot;fs&quot;);
+var data = fs.readFileSync(&quot;foo.txt&quot;,{encoding:&quot;UTF-8&quot;});
+console.log(data);
+</code></pre>
+<p>如果不指定File的encoding配置，readFile会直接返回类似Buffer格式；如果希望得到的是字符串形式，还需要调用toString方法进行转化.</p>
+<ol start="2">
+<li><strong>writeFile</strong>  </li>
+</ol>
+<p>声明如下：  </p>
+<pre><code class="node.js">fs.writeFile(file, data[, option],callback);
+file &lt;String&gt; | &lt;Buffer&gt; | &lt;Integer&gt; filename of file descriptor  
+data &lt;String&gt; | &lt;Bufer&gt;
+options &lt;Object&gt; | &lt;String&gt;  
+encoding &lt;String&gt; | &lt;Null&gt; default  = null  
+mode &lt;Integer&gt; defult = 0o666  
+flag &lt;String&gt; defult = &quot;w&quot;  
+callblack = &lt;Function&gt;
+</code></pre>
+<p>在WriteFile的第一个参数文件名，如果不存在，则会尝试创建它(默认flag为w)。  </p>
+<pre><code class="node.js">var fs = require(&quot;fs&quot;);
+fs.writeFile(&quot;foo.txt&quot;, &quot;你好&quot;, { flag: &quot;a&quot;, encoding: &quot;UTF-8&quot; }, function (err) {
+    if (err) {
+        console.log(err);
+        return;
+    }
+    console.log(&quot;success&quot;);
+});
+</code></pre>
+<ol start="3">
+<li><strong>fs.stat(path,callback)</strong><br>stat方法通常用来获取3文件状态。<br>通常开发者可以再调用opne(),read(),或者write方法之前调用fs.stat方法，用来判断文件是否存在。  </li>
+</ol>
+<pre><code class="node.js">var fs = require(&quot;fs&quot;);
+fs.stat(&quot;test.txt&quot;,function(err,result){
+    if (err){
+        console.log(err);
+        return;
+    }
+    console.log(result);
+});
+</code></pre>
+<p>文件存在返回文件信息，如果不存在则会出现Error ENOENT：no such file or director的错误。  </p>
+<ol start="4">
+<li><strong>fs.stat和fs.fstat的区别</strong></li>
+</ol>
+<p>声明如下：  </p>
+<pre><code class="node.js">fs.fstat(fd,callback)
+</code></pre>
+<p>fs.stat和fs.fstat在功能上是等价的，唯一的区别是fstat第一个参数是文件的描述符，格式为Integer，因此fstat方法通常搭配open方法使用，因为open方法返回得到结果就是一个文件描述。  </p>
+<pre><code class="node.js">var fs = require(&quot;fs&quot;);
+fs.open(&quot;test.txt&quot;,&quot;a&quot;,function (err,fd){
+    if (err){
+        console.log();
+        return;
+    }
+    console.log(fd);
+    fs.fstat(fd,function(err,result){
+        if (err){
+            console.log(err);
+            return;
+        }
+        console.log(result);
+    });
+});
+</code></pre>
+<p>下面是一个例子————获取目录下所有的文件名，这是一个常见的需求，实现这个功能只需要fs.readFile以及fs.stat连个API，readdir用于获取目录下所有的问文件或者子目录，stat用来判断具体每条记录是文件还是子目录，如果是子目录，则递归调用整个方法。  </p>
+<pre><code class="node.js">var fs = require(&quot;fs&quot;);
+function getAllFileFromPath(path) {
+    fs.readdir(path, function (err, res) {
+        for (var subPath of res) {
+            //这里使用同步方法而非异步
+            var statObj = fs.statSync(path + &quot;/&quot; + subPath);
+            if (statObj.isDirectory()) {//判断是否为目录
+                console.log(&quot;Dir:&quot;, subPath);
+                getAllFileFromPath(path + &quot;/&quot; + subPath)
+            } else {
+                console.log(&quot;File:&quot;, subPath);
+            }
+        }
+    })
+}
+getAllFileFromPath(__dirname);
+</code></pre>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
