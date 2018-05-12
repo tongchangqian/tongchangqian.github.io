@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      NODEJS_模块_BUFFER_文件系统 | 汀潼 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="TongCQ">
+    
+    
+
+    <meta name="description" content="module(模块)、buffer、fileSystem(文件系统)相关知识">
+<meta name="keywords" content="nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NODEJS_模块_BUFFER_文件系统 | 汀潼">
+<meta property="og:url" content="http://yoursite.com/2018/05/04/nodejs_modeule_buffer_fileSystem/index.html">
+<meta property="og:site_name" content="汀潼">
+<meta property="og:description" content="module(模块)、buffer、fileSystem(文件系统)相关知识">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-07T08:40:54.082Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NODEJS_模块_BUFFER_文件系统 | 汀潼">
+<meta name="twitter:description" content="module(模块)、buffer、fileSystem(文件系统)相关知识">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">汀潼</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archives" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">NODEJS_模块_BUFFER_文件系统</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-05-04" class="post-meta__date date">2018-05-04</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/童长钱/">童长钱</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/nodejs/">nodejs</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="一、MODULE"><a href="#一、MODULE" class="headerlink" title="一、MODULE"></a>一、MODULE</h2><h4 id="1-1、JavaScript的模块规范"><a href="#1-1、JavaScript的模块规范" class="headerlink" title="1.1、JavaScript的模块规范"></a>1.1、JavaScript的模块规范</h4><p>目前流行的JavaScript的模块规范主要有两种：</p>
+<p><strong>CommonJS</strong><br><em>CommonJS</em>把每一个文件看做一个模块，模块内部定义的每一个变量都是私有的，无法别其他模块使用，除非使用预定义的方法将内部定义的变量暴露出来（<em>通过exprots和require关键字来实现</em>）<br><em>CommonJS</em> 一个显著的特点就是模块加载是同步的，就目前来说，受限制于宽带速度，并不适用于浏览器中的人JavaScript。<br><strong>AMD</strong><br><em>AMD</em>是Asynchronous Module Definition的缩写，意思就是“一步模块定义”，它采用异步方式加载模块，模块加载不影响它后面语句的运行。依赖这个模块代码定义在一个回调函数中，等到加载完成之后，这个回调才会运行。</p>
+<a id="more"></a>
+<h4 id="1-2、require及其运行机制"><a href="#1-2、require及其运行机制" class="headerlink" title="1.2、require及其运行机制"></a>1.2、require及其运行机制</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//preson.js</span><br><span class="line">var preson =&#123;</span><br><span class="line">    talk: function () &#123;</span><br><span class="line">        console.log(&quot;I am talking...&quot;);</span><br><span class="line">    &#125;,</span><br><span class="line">    listen :function () &#123;</span><br><span class="line">        console.log(&quot;I am listening...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    //MORE func...</span><br><span class="line">&#125;</span><br><span class="line">module.exports = person;</span><br></pre></td></tr></table></figure>
+<p>这样实现一个自定义的模块，该模提供的一个preson接口，然后使用module.exports将接口口暴露给外部有使用，外部的代码想要使用preson.js的方法，需要使用require关键字引入该接口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var persom =requitr(&quot;./person.js&quot;);</span><br><span class="line">person.talk();</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：再引入自定义模块时省略相对路径“./”会导致错误。<br>如果只需要引入其中的人一个，代码可以这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var talk =require(&quot;./person.js&quot;).talk;</span><br><span class="line">talk();</span><br></pre></td></tr></table></figure>
+<p><strong>require</strong>关键字并不依赖于exports，应为加载一个没有暴露任何方法的模块，这相当于执行一个模块代码，这样做通常是没有意义的。</p>
+<h4 id="1-3、require的缓存策略"><a href="#1-3、require的缓存策略" class="headerlink" title="1.3、require的缓存策略"></a>1.3、require的缓存策略</h4><p>Node会自动缓存require引入的文件，使得下次再引入不需要在经过文件系统而是直接从缓存读取。这种缓存是基于文件路径定位的，这表示两个完全相同的文件，但在他们位于不同的路径下，也会在缓存中维持两份。例如使用下面代码访问目前在缓存中的文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var moudle =require(&quot;./moudle.js&quot;);</span><br><span class="line">console.log(require.cache);</span><br></pre></td></tr></table></figure>
+<h4 id="1-4、require的隐患"><a href="#1-4、require的隐患" class="headerlink" title="1.4、require的隐患"></a>1.4、require的隐患</h4><p>当调用require加载一个模块时，模块内部的代码会被调用，有时候会带来隐藏的bug。例如下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//module.js</span><br><span class="line">function test()&#123;</span><br><span class="line">    setInterval(function ()&#123;</span><br><span class="line">        console.log(&quot;test&quot;);</span><br><span class="line">    &#125;),100</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line">module.expoets =test;</span><br><span class="line">//run.js</span><br><span class="line">var test require(&quot;./module.js&quot;);</span><br></pre></td></tr></table></figure>
+<p>run.js除了加载一个模块之外没有进行任何操作，试着运行一下，就会发现每隔一秒钟就会输出一个 “test”字符串，同时run.js的进程不会退出。因为：加载一个模块相当于执行模块内部代码，在module.js中由于设置了一个不间断的定时器，导致run.js也会一直运行。</p>
+<h4 id="1-5、模块化下的作用域"><a href="#1-5、模块化下的作用域" class="headerlink" title="1.5、模块化下的作用域"></a>1.5、模块化下的作用域</h4><p>主要关注点在<strong>this</strong>上。<br>Node和javaScript中的this指向上有一些区别，其中Node控制台和脚本文件的策略不尽相同。<br>对于浏览器中的javaScript来说，无论是在脚本还是在浏览器控制台中，其this的指向是一致的，然Node并非这样。</p>
+<ol>
+<li>控制台中的this</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(this);</span><br><span class="line">//输出：window&#123;stop:functiom,open function,.....&#125;</span><br><span class="line">//---------------------</span><br><span class="line">var a = 10;</span><br><span class="line">console.log(this.a);</span><br><span class="line">//输出 10;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Node控制台中的this<br>在node控制台中,全局变量会挂到global下.<br>创建一个test.js文件在文件中添加以下代码：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(this);//&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>运行 node test.js打印出结果是一个空对象。<br>执行下面代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 10;</span><br><span class="line">console.log(this.a);//undefined</span><br><span class="line">console.log(global.a);//undefined</span><br></pre></td></tr></table></figure>
+<p>结果全部都是undefined,说明定义的变量a并没有挂到全局变量的this或者global对象。<br>然而如果声明变量时不使用var或者let关键字修饰，例如下面代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 10;</span><br><span class="line">console.log(global.a);//10</span><br></pre></td></tr></table></figure>
+<p>这样却可以正常打印结果。<br>node脚本文件中定义的全局this指向是：module.exports。如下面代码所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">this.a = 10;</span><br><span class="line">console.log(module.exports);//10</span><br></pre></td></tr></table></figure>
+<h4 id="1-6、Node中作用域种类"><a href="#1-6、Node中作用域种类" class="headerlink" title="1.6、Node中作用域种类"></a>1.6、Node中作用域种类</h4><p>1.全局作用域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 10;</span><br><span class="line">console.log(global.a);//10</span><br></pre></td></tr></table></figure>
+<p>2.模块作用域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">this.a = 10;</span><br><span class="line">console.log(module.exports);//10</span><br></pre></td></tr></table></figure>
+<p>3.函数作用域</p>
+<p>这个大家都比较熟悉，就不在介绍。</p>
+<p>4.块级作用域</p>
+<p>ES2015中引入let关键字提供了对块级作用域的支持。</p>
+<h2 id="二、Buffer"><a href="#二、Buffer" class="headerlink" title="二、Buffer"></a>二、Buffer</h2><p><strong>Buffer</strong>是Node特有的一种数据类型，主要用来处理二进制数据。</p>
+<p><strong>Buffer</strong>属于固有（built-in）类型,因此无需使用require引入。</p>
+<p><em>在文件和网络操作中，如果不显示声明编码格式，其返回的默认类型就是Buffer</em></p>
+<p>例如下面例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">fs.readFile(&quot;foo.text&quot;,function (err,results)&#123;</span><br><span class="line">    console.log(results);</span><br><span class="line">&#125;);</span><br><span class="line">//结果：&lt;Buffer 48 65 6c 6f 20 57 6f 72 6c 64 &gt;(hellow node)</span><br></pre></td></tr></table></figure>
+<p>上面的代码中，最后打印出的是十六进制的数据，由于纯二进制格式太长而且难以阅读，Buffer通常表现为十六进制的字符串。</p>
+<h4 id="Buffer的构建以转换"><a href="#Buffer的构建以转换" class="headerlink" title="Buffer的构建以转换"></a>Buffer的构建以转换</h4><p>buffer类初始化一个buffer对象，参数可以是二进制数据组成的数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var buffer = Buffer([0x48,0x65,0x6c,0x6c,0x6c,0x6f,0x20,0x4e,0x64f,0x64,0x65]);</span><br><span class="line">//结果：hellow node</span><br></pre></td></tr></table></figure>
+<p>如果想有一个字符串来得到一个Buffer，同样可以实现，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var buffer = new Buffer(&quot;Hellow Node&quot;);</span><br><span class="line">console.log(buffer);</span><br><span class="line">//结果：&lt;Buffer 48 65 6c 6f 20 4e 6f 64 65&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：在最新的Node API中，Buffer()方法被标记为Depecated(“不赞同”的意思)，表示不推荐使用;目前推荐使用Buffer.from方法来初始化一个对象，上面的代码可以改写成为提下形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var buffer = Buffer.from([0x48,0x65,0x6c,0x6c,0x6c,0x6f,0x20,0x4e,0x64f,0x64,0x65]);//&quot;Hellow Node&quot;</span><br><span class="line">var buffer = new Buffer.from(&quot;Hellow Node&quot;);</span><br><span class="line">console.log(buffer);</span><br><span class="line">//结果：&lt;Buffer 48 65 6c 6f 20 4e 6f 64 65&gt;</span><br></pre></td></tr></table></figure>
+<p>如果想把一个Buffer对象转换成字符串的形式，需要用到toString()方法，调用格式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">buffer.toString([encoding],[start],[end]);</span><br><span class="line">encoding: 目标编码格式</span><br><span class="line">start: 起始位置</span><br><span class="line">end: 结束位置</span><br></pre></td></tr></table></figure>
+<p>Bufer支持的编码格式有限，只有以下六种：<br>1.ASCⅡ<br>2.Base64<br>3.Binary<br>4.hex<br>5.UTF-8<br>6.UTF-16LE/UCS-2</p>
+<p>buffer还提供了isEncoding方法来判断是否支持转换为目标编码格式。</p>
+<p>例如：把“Hellow Node”的Buffer对象转换为字符串，可以这样调用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//制转换前五个字符 输出“hello”</span><br><span class="line">console.log(buffer.tiString(&quot;utf-8&quot;,0,5));</span><br></pre></td></tr></table></figure>
+<h4 id="Buffer-的拼接"><a href="#Buffer-的拼接" class="headerlink" title="Buffer 的拼接"></a>Buffer 的拼接</h4><p>Buffer一个常见的场景是用来处理HTTP的post请求，例如下面代码: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var body = &apos;&apos;;</span><br><span class="line">req.setEncoding(&quot;utf-8&quot;);</span><br><span class="line">req.on(&quot;data&quot;,function(chunk)&#123;</span><br><span class="line">    body += chunk;</span><br><span class="line">&#125;);</span><br><span class="line">req.on(&quot;end&quot;,fiunction()&#123;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><em>上面代码使用+=来拼接上传的数据流，这个过程包含了一个隐式的编码转换。<br>body += chunk 相当于 body+=chunk。toString()，当上传的字符全是英文字符的时候固然没有问题，<br>但如果包含中文或者其他语言，由于toString方法默认使用UTF-8编码，这个时候就可能出现乱码。</em></p>
+<p><strong>举个例子</strong>：首先构造一个中文字符串，并保存为test.txt<br><em>八百标兵奔北坡，北坡炮兵并排跑。炮兵排把标兵碰，标兵怕碰炮兵炮。</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var rs =require(&quot;fs&quot;).createReadStream(&quot;test.txt&quot;,&#123;highWaterMark :10&#125;);</span><br><span class="line">var data = &quot;&quot;;</span><br><span class="line">rs.on(&quot;data&quot;,function (chunk)&#123;</span><br><span class="line">    data += chunk;</span><br><span class="line">&#125;);</span><br><span class="line">rs.on(&quot;end&quot;,function()&#123;</span><br><span class="line">    console.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>highWaterMark</strong><br>字面的意思最高水位线,它表示内部缓冲区最多能容纳的字节数，如果超过这个大小，就停止读取资源文件，默认大小64KB。<br>假设文件的大小超过默认值64KB就会触发data事件：chunk的大小就等于<em>highWaterMark</em>大小;直到文件读取完成时，触发end事件。<br>由于UTF-8中一个汉字占三个字节，那么highWaterMark设置为10，每三个子之后就有一个字会被截段，因此在调用tostring方法的时候出现乱码。<br>目前上面的代码已经被舍弃，官方推荐使用push方法来拼接Buffer，如下面代码所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var rs =require(&quot;fs&quot;).createReadStream(&quot;test.txt&quot;,&#123;highWaterMark :10&#125;);</span><br><span class="line">var data = [];</span><br><span class="line">rs.on(&quot;data&quot;,function (chunk)&#123;</span><br><span class="line">    data.push(chunk);</span><br><span class="line">&#125;);</span><br><span class="line">rs.on(&quot;end&quot;,function()&#123;</span><br><span class="line">    var buf = Buffer.concat(data);</span><br><span class="line">    console.log(buf.toString());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>上面代码在拼接的过程中不会有隐式的编码转换，首先将Buffer放到数组里面去，等待传输完后在进行转换，这样就不会出现乱码。</p>
+<h2 id="三、File-System"><a href="#三、File-System" class="headerlink" title="三、File System"></a>三、File System</h2><h4 id="FileSystem？"><a href="#FileSystem？" class="headerlink" title="FileSystem？"></a>FileSystem？</h4><p><strong>File System</strong> 是Node中使用最为频繁的模块之一，该模块提供了读写文件系统的能力。<br>浏览器中的JavaScript没有读写本地文件系统的能力(忽略IE中的ActiveX),而Node作服务器编程语言，伟岸系统API是必须的，File System模块包含了数十个文件操作的API，<a href="https://nodejs.org/dist/latest-v8.x/docs/api//fs.html" target="_blank" rel="noopener">查阅API</a></p>
+<h4 id="下面介绍几个常用的API"><a href="#下面介绍几个常用的API" class="headerlink" title="下面介绍几个常用的API"></a>下面介绍几个常用的API</h4><ol>
+<li><strong>readFile</strong></li>
+</ol>
+<p>声明如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(file[,options,callback])#</span><br><span class="line">Added: v0.1.29</span><br><span class="line">file &lt;String&gt; | &lt;Buffer&gt; | &lt;Integer&gt; filename of file descriptor</span><br><span class="line">options &lt;Object&gt; | &lt;String&gt;</span><br><span class="line">encoding &lt;String&gt; | &lt;Null&gt; default  = null</span><br><span class="line">flag &lt;String&gt; defult = &quot;r&quot;</span><br><span class="line">callblack = &lt;Function&gt;</span><br></pre></td></tr></table></figure>
+<p>readFile 方法用异步来读取文件中的内容，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var fs= require(&quot;fs&quot;);</span><br><span class="line">var data = fs.readFileSync(&quot;foo.txt&quot;,function (err,data)&#123;</span><br><span class="line">    if (err) thorw err;</span><br><span class="line">    console.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><em>readFile</em>会将一个文件的全部内容读到内存中，适用于提交较小的文本；如果有一个数百MB大小的文件需要读取，建议不要使用readFile而是选择stream。readFile读出的数据需要在回调方法中获取，而readFileSync直接返回文本数据内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fs= require(&quot;fs&quot;);</span><br><span class="line">var data = fs.readFileSync(&quot;foo.txt&quot;,&#123;encoding:&quot;UTF-8&quot;&#125;);</span><br><span class="line">console.log(data);</span><br></pre></td></tr></table></figure>
+<p>如果不指定File的encoding配置，readFile会直接返回类似Buffer格式；如果希望得到的是字符串形式，还需要调用toString方法进行转化.</p>
+<ol start="2">
+<li><strong>writeFile</strong></li>
+</ol>
+<p>声明如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fs.writeFile(file, data[, option],callback);</span><br><span class="line">file &lt;String&gt; | &lt;Buffer&gt; | &lt;Integer&gt; filename of file descriptor</span><br><span class="line">data &lt;String&gt; | &lt;Bufer&gt;</span><br><span class="line">options &lt;Object&gt; | &lt;String&gt;</span><br><span class="line">encoding &lt;String&gt; | &lt;Null&gt; default  = null</span><br><span class="line">mode &lt;Integer&gt; defult = 0o666</span><br><span class="line">flag &lt;String&gt; defult = &quot;w&quot;</span><br><span class="line">callblack = &lt;Function&gt;</span><br></pre></td></tr></table></figure>
+<p>在WriteFile的第一个参数文件名，如果不存在，则会尝试创建它(默认flag为w)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">fs.writeFile(&quot;foo.txt&quot;, &quot;你好&quot;, &#123; flag: &quot;a&quot;, encoding: &quot;UTF-8&quot; &#125;, function (err) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">        console.log(err);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&quot;success&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><strong>fs.stat(path,callback)</strong></li>
+</ol>
+<p>stat方法通常用来获取3文件状态。<br>通常开发者可以再调用opne(),read(),或者write方法之前调用fs.stat方法，用来判断文件是否存在。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">fs.stat(&quot;test.txt&quot;,function(err,result)&#123;</span><br><span class="line">    if (err)&#123;</span><br><span class="line">        console.log(err);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>文件存在返回文件信息，如果不存在则会出现Error ENOENT：no such file or director的错误。</p>
+<ol start="4">
+<li><strong>fs.stat和fs.fstat的区别</strong></li>
+</ol>
+<p>声明如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.fstat(fd,callback)</span><br></pre></td></tr></table></figure>
+<p>fs.stat和fs.fstat在功能上是等价的，唯一的区别是fstat第一个参数是文件的描述符，格式为Integer，因此fstat方法通常搭配open方法使用，因为open方法返回得到结果就是一个文件描述。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">fs.open(&quot;test.txt&quot;,&quot;a&quot;,function (err,fd)&#123;</span><br><span class="line">    if (err)&#123;</span><br><span class="line">        console.log();</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(fd);</span><br><span class="line">    fs.fstat(fd,function(err,result)&#123;</span><br><span class="line">        if (err)&#123;</span><br><span class="line">            console.log(err);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(result);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>下面是一个例子————获取目录下所有的文件名，这是一个常见的需求，实现这个功能只需要fs.readFile以及fs.stat连个API，readdir用于获取目录下所有的问文件或者子目录，stat用来判断具体每条记录是文件还是子目录，如果是子目录，则递归调用整个方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">function getAllFileFromPath(path) &#123;</span><br><span class="line">    fs.readdir(path, function (err, res) &#123;</span><br><span class="line">        for (var subPath of res) &#123;</span><br><span class="line">            //这里使用同步方法而非异步</span><br><span class="line">            var statObj = fs.statSync(path + &quot;/&quot; + subPath);</span><br><span class="line">            if (statObj.isDirectory()) &#123;//判断是否为目录</span><br><span class="line">                console.log(&quot;Dir:&quot;, subPath);</span><br><span class="line">                getAllFileFromPath(path + &quot;/&quot; + subPath)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                console.log(&quot;File:&quot;, subPath);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">getAllFileFromPath(__dirname);</span><br></pre></td></tr></table></figure>
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-02T11:38:59.646Z</updated>
+  <updated>2018-05-12T11:27:44.085Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>nodejs-chapter-2</title>
+    <title>HTTP服务</title>
+    <link href="http://yoursite.com/2018/05/08/nodejs_chapter-4/"/>
+    <id>http://yoursite.com/2018/05/08/nodejs_chapter-4/</id>
+    <published>2018-05-07T16:00:00.000Z</published>
+    <updated>2018-05-12T11:27:44.085Z</updated>
+    
+    <summary type="html">
+    
+      服务器的创建和使用
+    
+    </summary>
+    
+      <category term="童长钱" scheme="http://yoursite.com/categories/%E7%AB%A5%E9%95%BF%E9%92%B1/"/>
+    
+    
+      <category term="nodejs" scheme="http://yoursite.com/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NODEJS_模块_BUFFER_文件系统</title>
+    <link href="http://yoursite.com/2018/05/04/nodejs_modeule_buffer_fileSystem/"/>
+    <id>http://yoursite.com/2018/05/04/nodejs_modeule_buffer_fileSystem/</id>
+    <published>2018-05-03T16:00:00.000Z</published>
+    <updated>2018-05-07T08:40:54.082Z</updated>
+    
+    <summary type="html">
+    
+      module(模块)、buffer、fileSystem(文件系统)相关知识
+    
+    </summary>
+    
+      <category term="童长钱" scheme="http://yoursite.com/categories/%E7%AB%A5%E9%95%BF%E9%92%B1/"/>
+    
+    
+      <category term="nodejs" scheme="http://yoursite.com/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NODEJS_BUFFER初解</title>
     <link href="http://yoursite.com/2018/05/02/nodejs-chapter-2/"/>
     <id>http://yoursite.com/2018/05/02/nodejs-chapter-2/</id>
     <published>2018-05-01T16:00:00.000Z</published>
-    <updated>2018-05-02T11:38:59.646Z</updated>
+    <updated>2018-05-07T08:24:24.804Z</updated>
     
     <summary type="html">
     
@@ -37,11 +77,11 @@
   </entry>
   
   <entry>
-    <title>nodejs-chapter-3</title>
+    <title>NODEJS-（File Systrem）文件系统</title>
     <link href="http://yoursite.com/2018/05/02/nodejs-chapter-3/"/>
     <id>http://yoursite.com/2018/05/02/nodejs-chapter-3/</id>
     <published>2018-05-01T16:00:00.000Z</published>
-    <updated>2018-05-02T11:35:43.177Z</updated>
+    <updated>2018-05-07T08:31:24.139Z</updated>
     
     <summary type="html">
     
@@ -57,11 +97,11 @@
   </entry>
   
   <entry>
-    <title>nodejs-chapter-1</title>
+    <title>NODEJS_模块使用</title>
     <link href="http://yoursite.com/2018/04/25/nodejs-chapter-1/"/>
     <id>http://yoursite.com/2018/04/25/nodejs-chapter-1/</id>
     <published>2018-04-24T16:00:00.000Z</published>
-    <updated>2018-05-02T11:54:42.077Z</updated>
+    <updated>2018-05-07T08:20:06.307Z</updated>
     
     <summary type="html">
     
@@ -77,15 +117,15 @@
   </entry>
   
   <entry>
-    <title>Html5_canvas_2</title>
+    <title>HTML5_canvas_第二章</title>
     <link href="http://yoursite.com/2018/04/18/html5-canvas-2/"/>
     <id>http://yoursite.com/2018/04/18/html5-canvas-2/</id>
     <published>2018-04-17T16:00:00.000Z</published>
-    <updated>2018-04-18T23:38:13.049Z</updated>
+    <updated>2018-05-07T08:13:43.433Z</updated>
     
     <summary type="html">
     
-      Html5-ccanvas进阶 canvas绘制 组合图形
+      HTML5-canvas进阶 canvas绘制 组合图形
     
     </summary>
     
@@ -97,11 +137,11 @@
   </entry>
   
   <entry>
-    <title>Html5-canvas_1</title>
+    <title>HTML5_canvan_第一章节</title>
     <link href="http://yoursite.com/2018/04/13/html5-canvas-1/"/>
     <id>http://yoursite.com/2018/04/13/html5-canvas-1/</id>
     <published>2018-04-13T12:12:15.000Z</published>
-    <updated>2018-04-15T06:49:17.999Z</updated>
+    <updated>2018-05-07T08:06:17.097Z</updated>
     
     <summary type="html">
     
@@ -117,15 +157,15 @@
   </entry>
   
   <entry>
-    <title>htnl5_base_info1</title>
-    <link href="http://yoursite.com/2018/04/09/html5-base-info1/"/>
-    <id>http://yoursite.com/2018/04/09/html5-base-info1/</id>
+    <title>HTML5_基础_第二章</title>
+    <link href="http://yoursite.com/2018/04/09/html5-base-info2/"/>
+    <id>http://yoursite.com/2018/04/09/html5-base-info2/</id>
     <published>2018-04-09T02:00:29.000Z</published>
-    <updated>2018-05-02T12:01:28.535Z</updated>
+    <updated>2018-05-07T08:03:28.260Z</updated>
     
     <summary type="html">
     
-      Html5
+      Html5 基础-初识标签和结构
     
     </summary>
     
@@ -137,15 +177,15 @@
   </entry>
   
   <entry>
-    <title>html5-base-info2</title>
-    <link href="http://yoursite.com/2018/03/29/html5-base-info2/"/>
-    <id>http://yoursite.com/2018/03/29/html5-base-info2/</id>
+    <title>HTML5_基础_第一章</title>
+    <link href="http://yoursite.com/2018/03/29/html5-base-info1/"/>
+    <id>http://yoursite.com/2018/03/29/html5-base-info1/</id>
     <published>2018-03-29T11:01:01.000Z</published>
-    <updated>2018-05-02T12:02:22.793Z</updated>
+    <updated>2018-05-07T08:03:24.763Z</updated>
     
     <summary type="html">
     
-      Html5 基础-初识标签和结构
+      HTML5基础的一些相关知识
     
     </summary>
     

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      HTTP服务 | 汀潼 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="TongCQ">
+    
+    
+
+    <meta name="description" content="服务器的创建和使用">
+<meta name="keywords" content="nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP服务 | 汀潼">
+<meta property="og:url" content="http://yoursite.com/2018/05/08/nodejs_chapter-4/index.html">
+<meta property="og:site_name" content="汀潼">
+<meta property="og:description" content="服务器的创建和使用">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-12T11:27:44.085Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTP服务 | 汀潼">
+<meta name="twitter:description" content="服务器的创建和使用">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">汀潼</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archives" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">HTTP服务</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-05-08" class="post-meta__date date">2018-05-08</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/童长钱/">童长钱</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/nodejs/">nodejs</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="HTTP服务"><a href="#HTTP服务" class="headerlink" title="HTTP服务"></a>HTTP服务</h2><p><strong>HTTP</strong>模块是Node的核心模块主要提供了一系列用于网络传输的API，<br>这些API大都位于比较底层的位置，可以让开发者自由的控制整个HTTP传输过程。</p>
+<h3 id="一、创建HTTP服务器"><a href="#一、创建HTTP服务器" class="headerlink" title="一、创建HTTP服务器"></a>一、创建HTTP服务器</h3><p>通常使用createServer()方法创建HTTP服务器，下面是一个简单的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;)</span><br><span class="line">var servser = http.createServer(function (req,res)&#123;</span><br><span class="line">    res.writeHead(200,&#123;&apos;Cont-Type&apos;:&apos;text/plain&apos;&#125;);</span><br><span class="line">    res.end(&quot;Hello node&quot;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(3000);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>上面的代码中，使用createServer方法创建了一个简单的HTTP服务器，该方法返回一个http.server累的实例，<br>createServer方法包含一个匿名的函数，<br>该函数有两个参数req和res，<br>他们是InComingMessage和ServerResponse的实例。<br>分别表示HTTP的request和response对象，<br>服务器创完成后，<br>Node进程开始循环监听3000端口（listen方法实现）。<br><em>当浏览器访问localhost：3000端口时，node放回”Hello Node”字符串。</em></p>
+<p>http.server类定义了一系列的事件，在上面的代码中，HTTP请求会触发connection和request事件，<br>将上面的代码稍微改造，监听来之客户端的事件，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;)</span><br><span class="line">var server = http.createServer(function(req,res)&#123;</span><br><span class="line">    res.writeHead(404, &#123;&apos;Content-Type&apos;: &apos;text/plain&apos;&#125;);</span><br><span class="line">    res.end(&quot;Hello Node!&quot;)</span><br><span class="line">&#125;);</span><br><span class="line">server.on(&quot;connection&quot;,function(req,res)&#123;</span><br><span class="line">    console.log(&quot;connected&quot;);</span><br><span class="line">&#125;)</span><br><span class="line">server.on(&quot;request&quot;,function(req,res)&#123;</span><br><span class="line">    console.log(&quot;request&quot;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(3000);</span><br></pre></td></tr></table></figure>
+<p>当访问<a href="http://localhost:3000/时,控制台输出如下：" target="_blank" rel="noopener">http://localhost:3000/时,控制台输出如下：</a><br>commectiom<br>request<br>request</p>
+<p>程序打印出连个request，代表触发了两次request事(其中一次触发favicon.ico请求)。  </p>
+<p>下面是一个简单的静态文件服务器，只支持文本文件，可以通过浏览器查看服务器文本内容。。代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;);</span><br><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">var server = http.createServer(function(req,res)&#123;</span><br><span class="line">    if(req.url==&quot;/&quot;)&#123;</span><br><span class="line">        //如果访问路径是localhost:3000,则显示文件列表</span><br><span class="line">        var fileList = fs.readdirSync(&quot;./&quot;);</span><br><span class="line">        res.writeHead(200,&#123;&quot;Content-type&quot;:&quot;text/plain&quot;&#125;);</span><br><span class="line">        //将数组转换为字符串返回</span><br><span class="line">        res.end(fileList.toString());</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        var path = req.url;</span><br><span class="line">        //在路径字符串前加.表示当前目录,避免在*nix系统下访问”/“文件夹</span><br><span class="line">        fs.readFile(&quot;.&quot;+path,function(err,data)&#123;</span><br><span class="line">            if(err)&#123;</span><br><span class="line">                //如果该文件不存在，抛出异常</span><br><span class="line">                res.end(&quot;Internal Error&quot;)</span><br><span class="line">                throw err;</span><br><span class="line">            &#125;</span><br><span class="line">            res.writeHead(200,&#123;&quot;Content-type&quot;:&quot;text/plain&quot;&#125;)</span><br><span class="line">            res.end(data);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">var port = 3000;</span><br><span class="line">server.listen(port);</span><br><span class="line">console.log(&quot;Listening on 3000&quot;);</span><br><span class="line"></span><br><span class="line">//处理异常</span><br><span class="line">process.on(&quot;uncaughtException&quot;,function()&#123;</span><br><span class="line">    console.log(&quot;got error&quot;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="二、处理HTTP请求"><a href="#二、处理HTTP请求" class="headerlink" title="二、处理HTTP请求"></a>二、处理HTTP请求</h3><ol>
+<li><strong>mothod、URL和header</strong></li>
+</ol>
+<p>档处理HTTP请求时，最先做的事情就是请求URL、method等信息。<br>Node将相关信息都封装在一个对象（前面代码req）中,该对象是IncomingMessage的实例。</p>
+<p><em>以获取method和URL为例</em>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var method = req.method;</span><br><span class="line">var url = req.url;</span><br></pre></td></tr></table></figure></p>
+<p>对于HTTP请求来说,method的值通常是<strong>get</strong>,<strong>post</strong>,<strong>put</strong>,<strong>delete</strong>,<strong>update</strong>5个关机键字之一,<br>以get和post最为常见,url的值为除去网站服务器地址之外的完整值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例如请求：</span><br><span class="line">http://example.com/index.html?name=Lear</span><br><span class="line">那么URL的值即为index.html?name=Lear。</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>header</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">http header通常为以下形式：</span><br><span class="line">&#123;</span><br><span class="line">    &apos;conent-length&apos;：&apos;123&apos;,</span><br><span class="line">    &apos;conent-type&apos;：&apos;text/plain&apos;,</span><br><span class="line">    &apos;connection&apos;:&apos;keeo-alive&apos;,</span><br><span class="line">    &apos;host&apos;:&apos;mysite.com&apos;,</span><br><span class="line">    &apos;accept&apos;:&apos;*/*&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Node 获取HTTP header信息也很简单，header是一个json对象可已对属性名进行单独索引：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var haeders = req.headers;</span><br><span class="line">var userAgent = haeders[&apos;user-agent&apos;];</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><strong>request body</strong><br>Node使用stream来处理HTTP请求，这个stream注册了data和end两个事件。<br>下面的这个段代码通常获取完整的HTTP内容体，在Buffer的一节我们已经提到过了。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var body = [];</span><br><span class="line">request.on(&apos;data&apos;,function(chunk)&#123;</span><br><span class="line">    body.push(chunk);</span><br><span class="line">&#125;).on(&apos;end&apos;,function ()&#123;</span><br><span class="line">   body = Buffer.concat(body).toString();  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><em>目前我们没有提到response对象，该对象是ServerResponse的一个实例，并且实现了一个writeStream，这个在介绍到Strean时会讲到，这里就不多说了。</em></p>
+<h3 id="三、Response对象"><a href="#三、Response对象" class="headerlink" title="三、Response对象"></a>三、Response对象</h3><ol>
+<li><p><strong>设置statusCode</strong><br>转态的设置在web开发中常常被忽略，在Node中如果开发者不手动设置，那么状态码的值会默认为200。<br>但这个值并不适合所有场景，另一个常用的状态是404，表示服务去没有对应的资源。<br>Web开发中如果遇到非法的路径访问，通常会返回一个404 nofound的页面，但实际上，即使开发者返回一个200的状态码，也能将对应的页面返回，因此状态码的设置通常是最佳实践，而非强制编码规范。</p>
+</li>
+<li><p><strong>设置response header</strong><br>通过setHeader方法设置response的头部信息。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader(&apos;Conent-Type&apos;,&apos;aplication/json&apos;);</span><br><span class="line">response.setHeader(&apos;X-Prowered-By&apos;,&apos;bacon&apos;);</span><br></pre></td></tr></table></figure>
+<p>setHeader方法可以设置response header 单个属性的内容，如果想要一次性设置所有属性响应头和状态码，可以使用writeHead方法。</p>
+<p><strong>respone.writeHead</strong><br> <em>writeHead方法用于定义HTTP现应，包括状态码等一系列属性,<br> 下面的例子会同时设置状态码和多个和多个字段。</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">respone.writeHead(200,&#123;&apos;Conent-Length&apos;:Buffer.byteLength(body),</span><br><span class="line">&apos;Content-Type&apos;:&apos;text/palin&apos;&#125;);</span><br></pre></td></tr></table></figure>
+<p> 调用该方法后，服务器向客户端发送HTTP相应头，后面通常会跟着调用res.write等方法,响应头不可重复发送。<br> 当调用end方法的时候也会调用writeHead,此时statesCode会自动设置成200。</p>
+<ol start="3">
+<li><strong>response body</strong><br>response对象是一个WritableStream实例，可以直接用write方法写入，写入后在调用end方法将stream发送到客户端。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">response.write(&apos;&lt;html&gt;&apos;);</span><br><span class="line">response.write(&apos;&lt;body&gt;&apos;&apos;);</span><br><span class="line">response.write(&apos;&lt;h1&gt;Hello World!&lt;/h1&gt;&apos;);</span><br><span class="line">response.write(&apos;&lt;/body&gt;&apos;);</span><br><span class="line">response.write(&apos;&lt;/html&gt;&apos;);</span><br><span class="line">response.end();</span><br></pre></td></tr></table></figure>
+<p><em>不过这样会显得有些繁琐，也可以直接将response body作为 end方法的参数进行返回。</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">response.end(&apos;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;h1&gt;Hello World&lt;/h1&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;&apos;);</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><strong>response.end</strong><br>end 方法在每个HTTP请求最后都会被调用，end方法支持一个字符串或者Buffer<br>作为参数，可以在指定HTTP请求的最后返回的数据，该数据会在浏览器页面上显示出来；如果定义了回调方法，那么会在end返回后调用。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res.end(&quot;Hello Node&quot;,function()&#123;</span><br><span class="line">    conlose.log(&quot;http cycle end&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="四、上传数据"><a href="#四、上传数据" class="headerlink" title="四、上传数据"></a>四、上传数据</h3><p>在实际的业务开发中，用户除了接收数据外，往往还有上传数据的需求,例如表单提交，提交文件等。<br>前面的小点只处理了头部信息，头部之外的类容(body部分)需要开发者自己解析，否则这部分类容就会被Node程序丢弃。<br>在传统Web开发中,最常用的HTTP请求只有post和get两种,get请求的报文内容很简单，只有请求和请求头部；post请求由于要上传数据，因此需要包含请求体的内容，有两个相关属性经常被用到，分别是conten-type和content-length。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">可以通过req.method属性来判断请求类型：</span><br><span class="line">var HTTP= require(&apos;http&apos;);</span><br><span class="line">var server =http.careateServer(function(req,res)&#123;</span><br><span class="line">   if(req.method == &quot;get&quot;)&#123;&#125;</span><br><span class="line">   if(req.method == &quot;post&quot;)&#123;&#125; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>提交表单</strong><br>表单的提交时post请求最常见的情景之一。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;form actiom=&quot;/login&quot; method =&quot;post&quot; id =&quot;form1&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;username&quot;/&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot;/&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;input type=&quot;submit&quot; name=&quot;submit&quot; id =&quot;submit&quot;/&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p><em>上面HTML代码定义了一个简单的form表单，单击submit按钮后将会将整个表当提交”/login”路径下。</em></p>
+<p><em>下面是Node服务器代码：</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;);</span><br><span class="line">var fs =  require(&quot;fs&quot;);</span><br><span class="line">var server = http.createServer(function(req,res)&#123;</span><br><span class="line">    if(req.url == &quot;/login&quot;)&#123;</span><br><span class="line">        swich(req.method)&#123;</span><br><span class="line">            case &quot;GET&quot;:</span><br><span class="line">                //使用流来加载login.html</span><br><span class="line">                fs.creatReadStream(&quot;/login.html&quot;).pipe(res);</span><br><span class="line">                break;</span><br><span class="line">            case &quot;POST&quot;:</span><br><span class="line">                dealPost(req,res);//自定义处理方法</span><br><span class="line">                break;</span><br><span class="line">            default :</span><br><span class="line">            console.log(&quot;other request&quot;);//其他请求类型</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        res.writeHead(302,&#123;</span><br><span class="line">            &apos;Location&apos;:&apos;/login&apos;</span><br><span class="line">            </span><br><span class="line">        &#125;);</span><br><span class="line">        res.end();//将所有的url访问都转到/login路径</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">server.listen(3000);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>使用post上传</strong><br>首先构建一个用于上传文件的表单。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form actiom=&quot;/upload&quot; method =&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;file&quot; name=&quot;file&quot; /&gt;</span><br><span class="line">    &lt;br /&gt;</span><br><span class="line">    &lt;input type=&quot;submit&quot; name=&quot;submit&quot; id =&quot;submit&quot;/&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p><em>服务器上处理上传文件</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function dealUpload(req,res)&#123;</span><br><span class="line">    var form = new formidable.IncomingForm();//创建formidable.IncomingForm对象</span><br><span class="line">    form.keepExtension = true;//保留原有的扩展名</span><br><span class="line">    form.uploadDir= _dirname;//上传目录为当前目录</span><br><span class="line">    form.parse(req,function (err, fileds, files)&#123;</span><br><span class="line">        if (err)&#123;thow err;&#125;</span><br><span class="line">        console.log(fields);//&#123;submit:&quot;submit&quot;&#125;</span><br><span class="line">        console.log(files);</span><br><span class="line">        res.writeHead(200,&#123;&quot;content-type&quot;:&apos;text/plain&apos;&#125;);</span><br><span class="line">        res.end(&quot;upload finished&quot;);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>如果想要获取file对象中的一些属性，可以通过</em>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">files.file.[]</span><br><span class="line">[]参数名称（键值对的形式）</span><br></pre></td></tr></table></figure>
+<h3 id="五、HTTP客户端服务"><a href="#五、HTTP客户端服务" class="headerlink" title="五、HTTP客户端服务"></a>五、HTTP客户端服务</h3><p>HTTP模块除了能在服务端处理请求之外，还可以作为客户端向服务器发起请求，例如通过http.get请求通过post方法上传文件等。</p>
+<p><em>HTTP.GET</em>声明如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http.get(options[,callback])#</span><br><span class="line">options&lt;object&gt;</span><br><span class="line">callback&lt;Functiom&gt;</span><br><span class="line">Rerurns:&lt;Http.ClientREquest&gt;</span><br></pre></td></tr></table></figure>
+<p>发起一个请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&quot;http&quot;);</span><br><span class="line">http.get(&quot;http://blockchain.info/ticker&quot;,function(res)&#123;</span><br><span class="line">    var statusCode = res.statusCode;</span><br><span class="line">    if(statusCode = 200)&#123;</span><br><span class="line">        //buffer一节已经提到过，试着修改下面的代码</span><br><span class="line">        var result = &quot;&quot;;</span><br><span class="line">        res.on(&quot;data&quot;,function(data)&#123;</span><br><span class="line">            result+=data;</span><br><span class="line">        &#125;)</span><br><span class="line">        res.on(&quot;end&quot;,function()&#123;</span><br><span class="line">            console.log(result.toString());</span><br><span class="line">        &#125;);</span><br><span class="line">        res.on(&quot;error&quot;,function(e)&#123;</span><br><span class="line">            console.log(e.message);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>上面代码向<a href="http://blockchain.info/ticke发起了一个get请求。" target="_blank" rel="noopener">http://blockchain.info/ticke发起了一个get请求。</a></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

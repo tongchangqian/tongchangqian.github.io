@@ -7,7 +7,7 @@
     
 
     <title>
-      nodejs-chapter-3 | 汀潼 
+      NODEJS-（File Systrem）文件系统 | 汀潼 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -19,14 +19,14 @@
     <meta name="description" content="nodejs file system（文件系统）">
 <meta name="keywords" content="nodejs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nodejs-chapter-3 | 汀潼">
+<meta property="og:title" content="NODEJS-（File Systrem）文件系统 | 汀潼">
 <meta property="og:url" content="http://yoursite.com/2018/05/02/nodejs-chapter-3/index.html">
 <meta property="og:site_name" content="汀潼">
 <meta property="og:description" content="nodejs file system（文件系统）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-02T11:35:43.177Z">
+<meta property="og:updated_time" content="2018-05-07T08:31:24.139Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nodejs-chapter-3 | 汀潼">
+<meta name="twitter:title" content="NODEJS-（File Systrem）文件系统 | 汀潼">
 <meta name="twitter:description" content="nodejs file system（文件系统）">
     
     
@@ -151,7 +151,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">nodejs-chapter-3</h1>
+    <h1 class="post-title">NODEJS-（File Systrem）文件系统</h1>
 
     
 
@@ -182,110 +182,32 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h3 id="File-System？"><a href="#File-System？" class="headerlink" title="File System？"></a>File System？</h3><p><strong>File System</strong> 是Node中使用最为频繁的模块之一，该模块提供了读写文件系统的能力。<br>浏览器中的JavaScript没有读写本地文件系统的能力(忽略IE中的ActiveX),而Node作服务器编程语言，伟岸系统API是必须的，File System模块包含了数十个文件操作的API，<a href="https://nodejs.org/dist/latest-v8.x/docs/api//fs.html" target="_blank" rel="noopener">查阅API</a><br><a id="more"></a></p>
-<h4 id="下面介绍几个常用的API"><a href="#下面介绍几个常用的API" class="headerlink" title="下面介绍几个常用的API"></a>下面介绍几个常用的API</h4><ol>
-<li><strong>readFile</strong></li>
-</ol>
-<p>声明如下：    </p>
-<pre><code class="node.js">fs.readFile(file[,options,callback])#  
-Added: v0.1.29  
-file &lt;String&gt; | &lt;Buffer&gt; | &lt;Integer&gt; filename of file descriptor  
-options &lt;Object&gt; | &lt;String&gt;  
-encoding &lt;String&gt; | &lt;Null&gt; default  = null  
-flag &lt;String&gt; defult = &quot;r&quot;  
-callblack = &lt;Function&gt;
-</code></pre>
-<p>readFile 方法用异步来读取文件中的内容，例如：  </p>
-<pre><code class="node.js">var fs= require(&quot;fs&quot;);
-var data = fs.readFileSync(&quot;foo.txt&quot;,function (err,data){
-    if (err) thorw err;
-    console.log(data);
-});
-</code></pre>
-<p><em>readFile</em>会将一个文件的全部内容读到内存中，适用于提交较小的文本；如果有一个数百MB大小的文件需要读取，建议不要使用readFile而是选择stream。readFile读出的数据需要在回调方法中获取，而readFileSync直接返回文本数据内容。  </p>
-<pre><code class="node.js">var fs= require(&quot;fs&quot;);
-var data = fs.readFileSync(&quot;foo.txt&quot;,{encoding:&quot;UTF-8&quot;});
-console.log(data);
-</code></pre>
+    <h3 id="File-System？"><a href="#File-System？" class="headerlink" title="File System？"></a>File System？</h3><p><strong>File System</strong> 是Node中使用最为频繁的模块之一，该模块提供了读写文件系统的能力。<br>浏览器中的JavaScript没有读写本地文件系统的能力(忽略IE中的ActiveX),而Node作服务器编程语言，文件 系统API是必须的，File System模块包含了数十个文件操作的API，<a href="https://nodejs.org/dist/latest-v8.x/docs/api//fs.html" target="_blank" rel="noopener">查阅API</a>。</p>
+<a id="more"></a>
+<h4 id="下面介绍几个常用的API"><a href="#下面介绍几个常用的API" class="headerlink" title="下面介绍几个常用的API"></a>下面介绍几个常用的API</h4><p>1.<strong>readFile</strong></p>
+<p>声明如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(file[,options,callback])#</span><br><span class="line">Added: v0.1.29</span><br><span class="line">file &lt;String&gt; | &lt;Buffer&gt; | &lt;Integer&gt; filename of file descriptor</span><br><span class="line">options &lt;Object&gt; | &lt;String&gt;</span><br><span class="line">encoding &lt;String&gt; | &lt;Null&gt; default  = null</span><br><span class="line">flag &lt;String&gt; defult = &quot;r&quot;</span><br><span class="line">callblack = &lt;Function&gt;</span><br></pre></td></tr></table></figure>
+<p>readFile 方法用异步来读取文件中的内容，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var fs= require(&quot;fs&quot;);</span><br><span class="line">var data = fs.readFileSync(&quot;foo.txt&quot;,function (err,data)&#123;</span><br><span class="line">    if (err) thorw err;</span><br><span class="line">    console.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><em>readFile</em>会将一个文件的全部内容读到内存中，适用于提交较小的文本；如果有一个数百MB大小的文件需要读取，建议不要使用readFile而是选择stream。readFile读出的数据需要在回调方法中获取，而readFileSync直接返回文本数据内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fs= require(&quot;fs&quot;);</span><br><span class="line">var data = fs.readFileSync(&quot;foo.txt&quot;,&#123;encoding:&quot;UTF-8&quot;&#125;);</span><br><span class="line">console.log(data);</span><br></pre></td></tr></table></figure>
 <p>如果不指定File的encoding配置，readFile会直接返回类似Buffer格式；如果希望得到的是字符串形式，还需要调用toString方法进行转化.</p>
-<ol start="2">
-<li><strong>writeFile</strong>  </li>
-</ol>
-<p>声明如下：  </p>
-<pre><code class="node.js">fs.writeFile(file, data[, option],callback);
-file &lt;String&gt; | &lt;Buffer&gt; | &lt;Integer&gt; filename of file descriptor  
-data &lt;String&gt; | &lt;Bufer&gt;
-options &lt;Object&gt; | &lt;String&gt;  
-encoding &lt;String&gt; | &lt;Null&gt; default  = null  
-mode &lt;Integer&gt; defult = 0o666  
-flag &lt;String&gt; defult = &quot;w&quot;  
-callblack = &lt;Function&gt;
-</code></pre>
-<p>在WriteFile的第一个参数文件名，如果不存在，则会尝试创建它(默认flag为w)。  </p>
-<pre><code class="node.js">var fs = require(&quot;fs&quot;);
-fs.writeFile(&quot;foo.txt&quot;, &quot;你好&quot;, { flag: &quot;a&quot;, encoding: &quot;UTF-8&quot; }, function (err) {
-    if (err) {
-        console.log(err);
-        return;
-    }
-    console.log(&quot;success&quot;);
-});
-</code></pre>
-<ol start="3">
-<li><strong>fs.stat(path,callback)</strong><br>stat方法通常用来获取3文件状态。<br>通常开发者可以再调用opne(),read(),或者write方法之前调用fs.stat方法，用来判断文件是否存在。  </li>
-</ol>
-<pre><code class="node.js">var fs = require(&quot;fs&quot;);
-fs.stat(&quot;test.txt&quot;,function(err,result){
-    if (err){
-        console.log(err);
-        return;
-    }
-    console.log(result);
-});
-</code></pre>
-<p>文件存在返回文件信息，如果不存在则会出现Error ENOENT：no such file or director的错误。  </p>
-<ol start="4">
-<li><strong>fs.stat和fs.fstat的区别</strong></li>
-</ol>
-<p>声明如下：  </p>
-<pre><code class="node.js">fs.fstat(fd,callback)
-</code></pre>
-<p>fs.stat和fs.fstat在功能上是等价的，唯一的区别是fstat第一个参数是文件的描述符，格式为Integer，因此fstat方法通常搭配open方法使用，因为open方法返回得到结果就是一个文件描述。  </p>
-<pre><code class="node.js">var fs = require(&quot;fs&quot;);
-fs.open(&quot;test.txt&quot;,&quot;a&quot;,function (err,fd){
-    if (err){
-        console.log();
-        return;
-    }
-    console.log(fd);
-    fs.fstat(fd,function(err,result){
-        if (err){
-            console.log(err);
-            return;
-        }
-        console.log(result);
-    });
-});
-</code></pre>
-<p>下面是一个例子————获取目录下所有的文件名，这是一个常见的需求，实现这个功能只需要fs.readFile以及fs.stat连个API，readdir用于获取目录下所有的问文件或者子目录，stat用来判断具体每条记录是文件还是子目录，如果是子目录，则递归调用整个方法。  </p>
-<pre><code class="node.js">var fs = require(&quot;fs&quot;);
-function getAllFileFromPath(path) {
-    fs.readdir(path, function (err, res) {
-        for (var subPath of res) {
-            //这里使用同步方法而非异步
-            var statObj = fs.statSync(path + &quot;/&quot; + subPath);
-            if (statObj.isDirectory()) {//判断是否为目录
-                console.log(&quot;Dir:&quot;, subPath);
-                getAllFileFromPath(path + &quot;/&quot; + subPath)
-            } else {
-                console.log(&quot;File:&quot;, subPath);
-            }
-        }
-    })
-}
-getAllFileFromPath(__dirname);
-</code></pre>
-
+<p>2.<strong>writeFile</strong></p>
+<p>声明如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fs.writeFile(file, data[, option],callback);</span><br><span class="line">file &lt;String&gt; | &lt;Buffer&gt; | &lt;Integer&gt; filename of file descriptor</span><br><span class="line">data &lt;String&gt; | &lt;Bufer&gt;</span><br><span class="line">options &lt;Object&gt; | &lt;String&gt;</span><br><span class="line">encoding &lt;String&gt; | &lt;Null&gt; default  = null</span><br><span class="line">mode &lt;Integer&gt; defult = 0o666</span><br><span class="line">flag &lt;String&gt; defult = &quot;w&quot;</span><br><span class="line">callblack = &lt;Function&gt;</span><br></pre></td></tr></table></figure>
+<p>在WriteFile的第一个参数文件名，如果不存在，则会尝试创建它(默认flag为w)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">fs.writeFile(&quot;foo.txt&quot;, &quot;你好&quot;, &#123; flag: &quot;a&quot;, encoding: &quot;UTF-8&quot; &#125;, function (err) &#123;</span><br><span class="line">    if (err) &#123;</span><br><span class="line">        console.log(err);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&quot;success&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>3.<strong>fs.stat(path,callback)</strong></p>
+<p>stat方法通常用来获取3文件状态。<br>通常开发者可以再调用opne(),read(),或者write方法之前调用fs.stat方法，用来判断文件是否存在。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">fs.stat(&quot;test.txt&quot;,function(err,result)&#123;</span><br><span class="line">    if (err)&#123;</span><br><span class="line">        console.log(err);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>文件存在返回文件信息，如果不存在则会出现Error ENOENT：no such file or director的错误。</p>
+<p>4.<strong>fs.stat和fs.fstat的区别</strong></p>
+<p>声明如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.fstat(fd,callback)</span><br></pre></td></tr></table></figure>
+<p>fs.stat和fs.fstat在功能上是等价的，唯一的区别是fstat第一个参数是文件的描述符，格式为Integer，因此fstat方法通常搭配open方法使用，因为open方法返回得到结果就是一个文件描述。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">fs.open(&quot;test.txt&quot;,&quot;a&quot;,function (err,fd)&#123;</span><br><span class="line">    if (err)&#123;</span><br><span class="line">        console.log();</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(fd);</span><br><span class="line">    fs.fstat(fd,function(err,result)&#123;</span><br><span class="line">        if (err)&#123;</span><br><span class="line">            console.log(err);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(result);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>下面是一个例子————获取目录下所有的文件名，这是一个常见的需求，实现这个功能只需要fs.readFile以及fs.stat连个API，readdir用于获取目录下所有的问文件或者子目录，stat用来判断具体每条记录是文件还是子目录，如果是子目录，则递归调用整个方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">function getAllFileFromPath(path) &#123;</span><br><span class="line">    fs.readdir(path, function (err, res) &#123;</span><br><span class="line">        for (var subPath of res) &#123;</span><br><span class="line">            //这里使用同步方法而非异步</span><br><span class="line">            var statObj = fs.statSync(path + &quot;/&quot; + subPath);</span><br><span class="line">            if (statObj.isDirectory()) &#123;//判断是否为目录</span><br><span class="line">                console.log(&quot;Dir:&quot;, subPath);</span><br><span class="line">                getAllFileFromPath(path + &quot;/&quot; + subPath)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                console.log(&quot;File:&quot;, subPath);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">getAllFileFromPath(__dirname);</span><br></pre></td></tr></table></figure>
   </section>
 
   <section class="post-comments">
